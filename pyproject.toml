@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "mailing-service-project"
+version = "0.1.0"
+description = "academic mailing service based on django"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+packages = [{include = "mailing_service_project"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+
+[tool.poetry.group.dev.dependencies]
+psycopg2-binary = "^2.9.6"
+django = "^4.2.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
