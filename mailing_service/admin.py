@@ -15,6 +15,7 @@ class MailingSettingsAdmin(admin.ModelAdmin):
 
     list_display = ('pk', 'send_time', 'frequency', 'sending_status',)
     list_display_links = ('pk',)
+    filter_horizontal = ('customers',)
     list_editable = ('frequency', 'sending_status',)
     list_filter = ('frequency', 'sending_status',)
 
