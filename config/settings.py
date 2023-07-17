@@ -9,18 +9,20 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
 from pathlib import Path
+from dotenv import load_dotenv
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+load_dotenv(BASE_DIR / '.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-o#5pln@*iqur2gorv0b63%#ih3-!xs-b-3ht0ptq0vie0a!yr)'
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -82,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'cw_db',
         'USER': 'postgres',
-        'PASSWORD': '661104',
+        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
 
 
     }
@@ -108,6 +110,16 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# E-mail smpt configuration
+# https://docs.djangoproject.com/en/4.2/topics/email/
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'alexandr.abramovv@gmail.com'
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -129,7 +141,18 @@ STATICFILES_DIRS = (
     BASE_DIR / 'static/',
 )
 
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Substituting a custom User model
+# https://docs.djangoproject.com/en/4.2/ref/settings/#std-setting-AUTH_USER_MODEL
+
+# AUTH_USER_MODEL = 'users.User'
