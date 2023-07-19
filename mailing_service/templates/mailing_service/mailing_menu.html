@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}
+Рассылка
+{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Наши пользователи</h2>
+                    <p class="card-text">
+                        Управление пользователями.</p>
+                    <a href="{% url 'mailing_service:customers_list' %}" class="btn btn-primary btn-sm">Показать всех</a>
+                    <a href="{% url 'mailing_service:customer_create' %}" class="btn btn-primary btn-sm">Добавить</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Настройка рассылок</h2>
+                    <p class="card-text">
+                        Создайте новые настройки для рассылки.</p>
+                    <a href="#" class="btn btn-primary btn-sm">Список рассылок</a>
+                    <a href="#" class="btn btn-primary btn-sm">Создать рассылку</a>
+                    <a href="#" class="btn btn-danger btn-sm">Удалить</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Информация о статусе рассылок</h2>
+                    <p class="card-text">
+                        Узнайте статус выполнения ранее запущенных рассылок.</p>
+                    <a href="#" class="btn btn-primary btn-sm">Узнать статус</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

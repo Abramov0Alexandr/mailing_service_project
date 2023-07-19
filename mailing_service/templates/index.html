@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}
+Главная страница
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Управление рассылками</h2>
+
+                    <p class="card-text">
+                        Настройте рассылку писем пользователям.</p>
+
+                    <a href="{% url 'mailing_service:mailing_menu' %}" class="btn btn-primary btn-sm">Перейти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Блог</h2>
+
+                    <p class="card-text">
+                        Посетите страницу с нашим блогом.</p>
+
+                    <a href="#" class="btn btn-primary btn-sm">Перейти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
