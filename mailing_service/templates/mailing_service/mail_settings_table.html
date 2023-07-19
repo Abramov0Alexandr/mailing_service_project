@@ -15,6 +15,7 @@
             <th>Время рассылки</th>
             <th>Периодичность</th>
             <th>Статус отправки</th>
+            <th>Подробнее</th>
             <th>Удалить</th>
         </tr>
         </thead>
@@ -30,6 +31,9 @@
             <td>{{ object.send_time }}</td>
             <td>{{ object.frequency }}</td>
             <td>{{ object.sending_status }}</td>
+            <td><a href="{% url 'mailing_service:mail_settings_detail' object.pk %}"
+                   class="btn btn-primary btn-sm">Подробнее</a></td>
+
             <td><a href="{% url 'mailing_service:mail_settings_delete' object.pk %}"
                    class="btn btn-danger btn-sm">Удалить</a></td>
         </tr>

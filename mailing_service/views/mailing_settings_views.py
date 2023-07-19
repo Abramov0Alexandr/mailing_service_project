@@ -16,6 +16,11 @@ class MailingSettingsCreateView(generic.CreateView):
     success_url = reverse_lazy('mailing_service:mail_settings_table')
 
 
+class MailingSettingsDetailView(generic.DetailView):
+    model = MailingSettings
+    template_name = 'mailing_service/mail_settings_detail.html'
+
+
 class MailingSettingsDeleteView(generic.DeleteView):
     model = MailingSettings
     template_name = 'mailing_service/mail_settings_delete.html'
