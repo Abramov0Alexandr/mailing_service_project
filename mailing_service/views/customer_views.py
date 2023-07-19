@@ -24,5 +24,5 @@ class CustomerUpdateView(generic.UpdateView):
 
 class CustomerDeleteView(generic.DeleteView):
     model = Customers
-    template_name = 'mailing_service/confirm_delete.html'
+    template_name = 'mailing_service/customer_delete.html'
     success_url = reverse_lazy('mailing_service:customers_list')
