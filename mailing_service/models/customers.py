@@ -1,5 +1,6 @@
 from django.db import models
 
+
 NULLABLE = {'blank': True, 'null': True}
 
 
@@ -7,7 +8,7 @@ class Customers(models.Model):
     email = models.EmailField(verbose_name='Почта', unique=True)
     first_name = models.CharField(max_length=20, verbose_name='Имя')
     surname = models.CharField(max_length=20, verbose_name='Фамилия')
-    patronymic = models.CharField(max_length=40, verbose_name='Отчество')
+    patronymic = models.CharField(max_length=40, verbose_name='Отчество', **NULLABLE)
     comment = models.TextField(verbose_name='Комментарий', **NULLABLE)
 
     def __str__(self):
