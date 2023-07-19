@@ -17,6 +17,7 @@ urlpatterns = [
     # Ссылки для работы с моделью MailingSettings
     path('mailing-settings/', custom_views.MailingSettingsListView.as_view(), name='mail_settings_table'),
     path('mailing-settings/create', custom_views.MailingSettingsCreateView.as_view(), name='mail_settings_create'),
+    path('mailing-menu/detail/<int:pk>', custom_views.MailingSettingsDetailView.as_view(), name='mail_settings_detail'),
     path('mailing-menu/delete/<int:pk>', custom_views.MailingSettingsDeleteView.as_view(), name='mail_settings_delete'),
 
 ]

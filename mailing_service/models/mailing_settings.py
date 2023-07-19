@@ -2,7 +2,6 @@ from django.db import models
 
 
 class MailingSettings(models.Model):
-
     STATUS_CHOICES = [
         (None, 'Не указано'),
         ('created', 'Создана'),
@@ -19,6 +18,7 @@ class MailingSettings(models.Model):
 
     customers = models.ManyToManyField('Customers', verbose_name='Клиенты')
 
+    # Атрибуты для настройки рассылки
     send_time = models.DateTimeField(auto_now_add=True, verbose_name='Время рассылки')
 
     frequency = models.CharField(
@@ -28,6 +28,10 @@ class MailingSettings(models.Model):
     sending_status = models.CharField(
         max_length=7, choices=STATUS_CHOICES, default=None, verbose_name='Статус отправки'
     )
+
+    # Атрибуты для создания письма в рассылке
+    message_title = models.CharField(max_length=250, verbose_name='Тема письма')
+    message_content = models.TextField(verbose_name='Содержание')
 
     def __str__(self):
         return f'Периодичность: {self.frequency}. Статус отправки: {self.sending_status}'

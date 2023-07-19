@@ -1,5 +1,5 @@
 from django.contrib import admin
-from mailing_service.models import Customers, MailingSettings, SendingMessage, MessagesLogs
+from mailing_service.models import Customers, MailingSettings, MessagesLogs
 
 
 @admin.register(Customers)
@@ -18,14 +18,6 @@ class MailingSettingsAdmin(admin.ModelAdmin):
     filter_horizontal = ('customers',)
     list_editable = ('frequency', 'sending_status',)
     list_filter = ('frequency', 'sending_status',)
-
-
-@admin.register(SendingMessage)
-class SendingMessageAdmin(admin.ModelAdmin):
-
-    list_display = ('pk', 'message_title', 'message_content',)
-    list_display_links = ('message_title',)
-    search_fields = ('message_content',)
 
 
 @admin.register(MessagesLogs)

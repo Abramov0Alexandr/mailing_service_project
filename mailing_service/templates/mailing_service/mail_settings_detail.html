@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Информация о рассылке
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Детальная информация о рассылке</h2>
+
+                    <p class="card-text">Получатели:</p>
+                    <ul class="list-group">
+                        {% for customer in object.customers.all %}
+                        <li class="list-group-item">{{ customer.email }} ({{customer.first_name}}
+                            {{customer.surname}})
+                        </li>
+                        {% endfor %}
+                    </ul>
+
+                    <br>
+
+                    <p class="card-text">Время отправки:</p>
+                    <ul class="list-group">
+                        <li class="list-group-item">{{ object.send_time }}</li>
+                    </ul>
+
+                    <br>
+
+                    <p class="card-text">Периодичность отправки сообщений:</p>
+                    <ul class="list-group">
+                        <li class="list-group-item">{{ object.frequency }}</li>
+                    </ul>
+
+                    <br>
+
+                    <p class="card-text">Статус отправки:</p>
+                    <ul class="list-group">
+                        <li class="list-group-item">{{ object.sending_status }}</li>
+                    </ul>
+
+                    <br>
+
+                    <p class="card-text">Содержание сообщения для рассылки:</p>
+                    <ul class="list-group">
+                        <li class="list-group-item">Тема сообщения: {{ object.message_title }}</li>
+                        <li class="list-group-item">Содержание сообщения: {{ object.message_content }}</li>
+                    </ul>
+                </div>
+
+                <div class="card-body">
+                    <a href="{% url 'mailing_service:mail_settings_table' %}" class="btn btn-primary">Назад</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

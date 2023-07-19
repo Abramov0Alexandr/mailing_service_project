@@ -11,7 +11,7 @@ class MessagesLogs(models.Model):
         ('failed', 'Провалено')
     ]
 
-    mailing_settings = models.ForeignKey('SendingMessage', on_delete=models.CASCADE, verbose_name='Настройки рассылки')
+    mailing_settings = models.ForeignKey('MailingSettings', on_delete=models.CASCADE, verbose_name='Настройки рассылки')
 
     last_attempt_time = models.DateTimeField(auto_now_add=True, verbose_name='Время последней попытки')
 
