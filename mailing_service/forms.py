@@ -1,5 +1,5 @@
 from django import forms
-from mailing_service.models import Customers
+from mailing_service.models import Customers, MailingSettings
 
 
 class StyleFormMixin:
@@ -16,3 +16,8 @@ class CustomerForm(StyleFormMixin, forms.ModelForm):
         exclude = ('comment',)
 
 
+class MailingSettingsForm(StyleFormMixin, forms.ModelForm):
+
+    class Meta:
+        model = MailingSettings
+        fields = '__all__'
