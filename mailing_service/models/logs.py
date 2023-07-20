@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 NULLABLE = {'blank': True, 'null': True}
 
@@ -13,7 +14,7 @@ class MessagesLogs(models.Model):
 
     mailing_settings = models.ForeignKey('MailingSettings', on_delete=models.CASCADE, verbose_name='Настройки рассылки')
 
-    last_attempt_time = models.DateTimeField(auto_now_add=True, verbose_name='Время последней попытки')
+    last_attempt_time = models.DateTimeField(default=timezone.now, verbose_name='Время последней попытки')
 
     attempt_status = models.CharField(max_length=8, choices=ATTEMPT_STATUS_CHOICES, verbose_name='Статус попытки',
                                       default=None)

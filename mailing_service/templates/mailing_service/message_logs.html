@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}
+Логи рассылок
+{% endblock %}
+{% block content %}
+{% for object in object_list %}
+<div class="container mt-4">
+
+    <table class="table">
+
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Настройки рассылки</th>
+            <th>Время последней попытки</th>
+            <th>Статус попытки</th>
+            <th>Ответ сервера</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">{{ object.pk }}</th>
+            <td>{{ object.mailing_settings }}</td>
+            <td>{{ object.last_attempt_time }}</td>
+            <td>{{ object.attempt_status }}</td>
+            <td>{{ object.server_response }}</td>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+{% endfor %}
+{% if not object_list %}
+<div class="container mt-4">
+    <div class="col-md-6 offset-md-3">
+
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Журнал информации о рассылках</h2>
+
+                <p class="card-text">
+                    В данный момент в журнале информации о рассылках нет ни одной записи
+                </p>
+
+                <a href="{% url 'mailing_service:mailing_menu' %}" class="btn btn-outline-primary">Назад</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

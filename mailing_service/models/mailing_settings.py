@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class MailingSettings(models.Model):
@@ -19,7 +20,7 @@ class MailingSettings(models.Model):
     customers = models.ManyToManyField('Customers', verbose_name='Клиенты')
 
     # Атрибуты для настройки рассылки
-    send_time = models.DateTimeField(auto_now_add=True, verbose_name='Время рассылки')
+    send_time = models.DateTimeField(default=timezone.now, verbose_name='Время рассылки')
 
     frequency = models.CharField(
         max_length=3, choices=FREQUENCY_CHOICES, default=None, verbose_name='Периодичность'
