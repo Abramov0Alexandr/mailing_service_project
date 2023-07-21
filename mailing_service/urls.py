@@ -8,7 +8,7 @@ app_name = 'mailing_service'
 urlpatterns = [
     # Ссылки для работы с моделью Customers
     path('', TemplateView.as_view(template_name='index.html'), name='homepage'),
-    path('mailing-menu/', TemplateView.as_view(template_name='mailing_service/mailing_menu.html'), name='mailing_menu'),
+    path('mailing-menu/', custom_views.MailingMenuView.as_view(), name='mailing_menu'),
     path('mailing-menu/users', custom_views.CustomersListView.as_view(), name='customers_list'),
     path('mailing-menu/users/create', custom_views.CustomerCreateView.as_view(), name='customer_create'),
     path('mailing-menu/users/update/<int:pk>', custom_views.CustomerUpdateView.as_view(), name='customer_update'),

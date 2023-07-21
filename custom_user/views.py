@@ -13,7 +13,7 @@ class UserRegistrationView(generic.CreateView):
     model = CustomUser
     form_class = UserRegistrationForm
     template_name = 'custom_user/user_registration.html'
-    success_url = reverse_lazy('mailing_service:homepage')
+    success_url = reverse_lazy('custom_user:reg_notification')
 
     def form_valid(self, form):
         self.object = form.save()
