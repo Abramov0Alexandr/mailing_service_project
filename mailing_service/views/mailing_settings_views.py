@@ -1,8 +1,13 @@
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.urls import reverse_lazy
 from django.views import generic
 
 from mailing_service.forms import MailingSettingsForm
 from mailing_service.models import MailingSettings
+
+
+class MailingMenuView(LoginRequiredMixin, generic.TemplateView):
+    template_name = 'mailing_service/mailing_menu.html'
 
 
 class MailingSettingsListView(generic.ListView):
