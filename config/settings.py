@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'mailing_service.apps.MailingServiceConfig'
+    'mailing_service.apps.MailingServiceConfig',
+    'custom_user.apps.CustomUserConfig',
 
 ]
 
@@ -114,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.2/topics/email/
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'alexandr.abramovv@gmail.com'
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
@@ -125,7 +126,7 @@ EMAIL_USE_TLS = True
 
 LANGUAGE_CODE = 'ru-ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = os.getenv('TIME_ZONE_SETTINGS')
 
 USE_I18N = True
 
@@ -155,4 +156,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Substituting a custom User model
 # https://docs.djangoproject.com/en/4.2/ref/settings/#std-setting-AUTH_USER_MODEL
 
-# AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'custom_user.CustomUser'
+
+# Authentication configue
+LOGIN_REDIRECT_URL = 'mailing_service:homepage'
+LOGOUT_URL = 'mailing_service:homepage'

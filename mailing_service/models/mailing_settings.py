@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils import timezone
 
@@ -33,6 +34,9 @@ class MailingSettings(models.Model):
     # Атрибуты для создания письма в рассылке
     message_title = models.CharField(max_length=250, verbose_name='Тема письма')
     message_content = models.TextField(verbose_name='Содержание')
+
+    # Атрибут для связи создатель-рассылка
+    mailing_owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, verbose_name='Создатель рассылки')
 
     def __str__(self):
         return f'Периодичность: {self.frequency}. Статус отправки: {self.sending_status}'

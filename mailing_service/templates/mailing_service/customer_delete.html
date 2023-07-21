@@ -20,8 +20,8 @@
                         Имя: {{ object.first_name}} | Фамилия: {{ object.surname}}
                     </p>
 
-                    <button type="submit" class="btn btn-outline-success">Удалить</button>
-                    <a href="{% url 'mailing_service:customers_list' %}" class="btn btn-outline-warning">Отмена</a>
+                    <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                    <a href="{% url 'mailing_service:customers_list' %}" class="btn btn-primary btn-sm">Отмена</a>
                 </div>
             </div>
         </form>

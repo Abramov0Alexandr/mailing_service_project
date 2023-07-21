@@ -23,4 +23,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('mailing_service.urls', namespace='mailing_service')),
+    path('profile/', include('custom_user.urls', namespace='custom_user')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
