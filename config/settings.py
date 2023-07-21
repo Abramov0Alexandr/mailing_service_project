@@ -161,3 +161,4 @@ AUTH_USER_MODEL = 'custom_user.CustomUser'
 # Authentication configue
 LOGIN_REDIRECT_URL = 'mailing_service:homepage'
 LOGOUT_URL = 'mailing_service:homepage'
+LOGIN_URL = 'custom_user:log_in'
