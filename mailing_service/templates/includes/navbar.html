@@ -20,8 +20,15 @@
                 <a class="nav-link" href="#">Блог</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Войти</a>
+                {% if request.user.is_authenticated %}
+                <a class="nav-link" href="{% url 'custom_user:log_out' %}">Выйти</a>
+                {% else %}
+                <a class="nav-link" href="{% url 'custom_user:log_in' %}">Войти</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'custom_user:registration' %}">Зарегистрироваться</a>
+            </li>
+            {% endif %}
         </ul>
     </div>
 </nav>
