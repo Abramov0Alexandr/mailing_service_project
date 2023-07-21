@@ -13,14 +13,14 @@
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" class="btn btn-outline-success">
+            <button type="submit" class="btn btn-success btn-sm">
                 {% if object %}
                 Сохранить изменения
                 {% else %}
                 Создать клиента
                 {% endif %}
             </button>
-            <a href="{% url 'mailing_service:customers_list' %}" class="btn btn-outline-warning">Отмена</a>
+            <a href="{% url 'mailing_service:customers_list' %}" class="btn btn-primary btn-sm">Отмена</a>
         </form>
 
     </div>
