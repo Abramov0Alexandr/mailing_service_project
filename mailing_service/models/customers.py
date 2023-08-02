@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 
 
@@ -20,6 +21,9 @@ class Customers(models.Model):
     # Атрибут для блокировки пользователя менеджером
     is_active = models.BooleanField(default=True, choices=CUSTOMER_STATUS, verbose_name='Статус пользователя')
 
+    # Атрибут для установления принадлежности сущности (создатель клиента-клиент)
+    customer_owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, verbose_name='Создатель клиента')
+
     def __str__(self):
         return f'{self.email} {self.first_name} {self.surname}'
 
@@ -27,3 +31,9 @@ class Customers(models.Model):
         verbose_name = 'Клиент сервиса'
         verbose_name_plural = 'Клиенты сервиса'
         ordering = ('pk',)
+
+        permissions = [
+            (
+                'block_user', 'Block or unblock customer'
+            )
+        ]

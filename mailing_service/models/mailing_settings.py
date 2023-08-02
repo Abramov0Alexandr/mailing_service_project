@@ -5,7 +5,6 @@ from django.utils import timezone
 
 class MailingSettings(models.Model):
     STATUS_CHOICES = [
-        (None, 'Не указано'),
         ('created', 'Создана'),
         ('active', 'Запущена'),
         ('closed', 'Завершена')
@@ -22,20 +21,20 @@ class MailingSettings(models.Model):
 
     # Атрибуты для настройки рассылки
     send_time = models.DateTimeField(default=timezone.now, verbose_name='Время рассылки')
+    # time = ...
 
     frequency = models.CharField(
         max_length=3, choices=FREQUENCY_CHOICES, default=None, verbose_name='Периодичность'
     )
 
     sending_status = models.CharField(
-        max_length=7, choices=STATUS_CHOICES, default=None, verbose_name='Статус отправки'
+        max_length=7, choices=STATUS_CHOICES, default='created', verbose_name='Статус отправки'
     )
 
     # Атрибуты для создания письма в рассылке
     message_title = models.CharField(max_length=250, verbose_name='Тема письма')
     message_content = models.TextField(verbose_name='Содержание')
 
-    # Атрибут для связи создатель-рассылка
     mailing_owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, verbose_name='Создатель рассылки')
 
     def __str__(self):
@@ -44,4 +43,10 @@ class MailingSettings(models.Model):
     class Meta:
         verbose_name = 'Настройка рассылки'
         verbose_name_plural = 'Настройки рассылок'
-        ordering = ('sending_status',)
+        ordering = ('pk', 'sending_status')
+
+        permissions = [
+            (
+                'stop_mailing', 'Stop or run mailing'
+            )
+        ]
