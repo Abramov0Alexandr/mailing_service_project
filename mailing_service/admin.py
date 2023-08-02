@@ -5,7 +5,7 @@ from mailing_service.models import Customers, MailingSettings, MessagesLogs
 @admin.register(Customers)
 class CustomersAdmin(admin.ModelAdmin):
 
-    list_display = ('pk', 'first_name', 'surname', 'patronymic', 'email',)
+    list_display = ('pk', 'first_name', 'surname', 'patronymic', 'email', 'customer_owner',)
     list_display_links = ('first_name', 'surname', 'patronymic',)
     search_fields = ('email',)
 
