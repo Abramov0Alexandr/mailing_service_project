@@ -14,4 +14,4 @@ class UserRegistrationForm(StyleFormMixin, UserCreationForm):
 
     class Meta:
         model = CustomUser
-        fields = ('email', 'fullname')
+        fields = ('email', 'fullname', 'avatar')
