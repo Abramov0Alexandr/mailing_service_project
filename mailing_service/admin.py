@@ -13,8 +13,8 @@ class CustomersAdmin(admin.ModelAdmin):
 @admin.register(MailingSettings)
 class MailingSettingsAdmin(admin.ModelAdmin):
 
-    list_display = ('pk', 'send_time', 'frequency', 'sending_status',)
-    list_display_links = ('pk',)
+    list_display = ('pk', 'send_time', 'frequency', 'sending_status', 'mailing_owner')
+    list_display_links = ('pk', 'send_time')
     filter_horizontal = ('customers',)
     list_editable = ('frequency', 'sending_status',)
     list_filter = ('frequency', 'sending_status',)
