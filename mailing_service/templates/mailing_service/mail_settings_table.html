@@ -29,7 +29,7 @@
                 <td>{{ object.frequency }}</td>
                 <td>
                     <p>{{ object.sending_status }}</p>
-                    {% if object.sending_status == 'active' %}
+                    {% if object.sending_status == 'created' or object.sending_status == 'active' %}
                         <a href="{% url 'mailing_service:toggle_mail_settings_status' object.pk %}"
                            class="btn btn-danger btn-sm">Отключить</a>
                     {% else %}

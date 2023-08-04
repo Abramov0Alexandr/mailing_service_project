@@ -76,7 +76,7 @@ class ToggleSendingStatusView(PermissionRequiredMixin, generic.View):
         if mailing.sending_status in ('created', 'active'):
             mailing.sending_status = 'closed'
         else:
-            mailing.sending_status = 'active'
+            mailing.sending_status = 'created'
 
         mailing.save()
 

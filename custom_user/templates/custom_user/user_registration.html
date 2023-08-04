@@ -6,11 +6,12 @@
     <div class="col-md-6 offset-md-3">
 
         <div class="card-body">
-            <h2 class="card-title">Управление рассылками</h2>
+            <h2 class="card-title">Создание нового аккаунта</h2>
 
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 <p class="card-text">
-                    Чтобы зарегистрировать новый аккаунт, пожалуйста, заполните форму:</p>
+                    Чтобы зарегистрировать новый аккаунт, пожалуйста, заполните форму:
+                </p>
                 {{ form.as_p }}
                 {% csrf_token %}
                 <button type="submit" class="btn btn-success btn-sm">Зарегистрироваться</button>
