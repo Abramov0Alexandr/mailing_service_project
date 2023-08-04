@@ -17,7 +17,7 @@ urlpatterns = [
     path('mailing-menu/users/block-unblock/<int:pk>', custom_views.ToggleAccountStatusView.as_view(), name='toggle_account'),
 
     # Ссылки для работы с моделью MailingSettings
-    path('mailing-settings/', custom_views.MailingSettingsListView.as_view(), name='mail_settings_table'),
+    path('mailing-settings', custom_views.MailingSettingsListView.as_view(), name='mail_settings_table'),
     path('mailing-settings/create', custom_views.MailingSettingsCreateView.as_view(), name='mail_settings_create'),
     path('mailing-settings/detail/<int:pk>', custom_views.MailingSettingsDetailView.as_view(), name='mail_settings_detail'),
     path('mailing-settings/delete/<int:pk>', custom_views.MailingSettingsDeleteView.as_view(), name='mail_settings_delete'),
