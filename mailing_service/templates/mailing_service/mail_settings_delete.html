@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}
+Удаление рассылки
+{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <div class="col-md-6 offset-md-3">
+
+        <form method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Удаление рассылки</h2>
+
+                    <p class="card-text">
+                        Пожалуйста, подтвердите запрос на удаление рассылки.
+                    </p>
+
+                    <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+                    <a href="{% url 'mailing_service:mail_settings_table' %}" class="btn btn-primary btn-sm">Отмена</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

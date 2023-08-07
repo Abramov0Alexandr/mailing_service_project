@@ -8,11 +8,17 @@ packages = [{include = "mailing_service_project"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+django = "^4.2.2"
 
 
 [tool.poetry.group.dev.dependencies]
 psycopg2-binary = "^2.9.6"
-django = "^4.2.2"
+python-dotenv = "^1.0.0"
+pillow = "^10.0.0"
+ipython = "^8.14.0"
+schedule = "^1.2.0"
+setuptools = "^68.0.0"
+python-dateutil = "^2.8.2"
 
 [build-system]
 requires = ["poetry-core"]

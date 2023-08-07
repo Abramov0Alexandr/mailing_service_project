@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Регистрация{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <div class="col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Авторизация</h2>
+
+                <p class="card-text">Пожалуйста, заполните поля для авторизации:</p>
+                <div class="login-form">
+
+                    <form action="{% url 'custom_user:log_in' %}" method="post">
+                        {{ form.as_p }}
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary btn-sm">Войти</button>
+                        <a href="{% url 'mailing_service:homepage' %}" class="btn btn-primary btn-sm">Назад</a>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
