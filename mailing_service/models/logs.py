@@ -19,7 +19,7 @@ class MessagesLogs(models.Model):
     attempt_status = models.CharField(max_length=8, choices=ATTEMPT_STATUS_CHOICES, verbose_name='Статус попытки',
                                       default=None)
 
-    server_response = models.CharField(max_length=100, **NULLABLE, verbose_name='Ответ сервера')
+    server_response = models.TextField(**NULLABLE, verbose_name='Ответ сервера')
 
     def __str__(self):
         return f'Статус попытки: {self.attempt_status}'
