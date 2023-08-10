@@ -30,13 +30,7 @@
    git clone git@github.com:Abramov0Alexandr/mailing_service_project.git
    ```
 
-2. Перейдите в директорию с проектом:
-
-   ```bash
-   cd mailing_service_project
-   ```
-
-3. Установите предопределенные зависимости:
+2. Установите предопределенные зависимости:
 
    ```bash
    poetry install
